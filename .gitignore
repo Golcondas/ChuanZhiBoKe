@@ -1,0 +1,37 @@
+
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.obj
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.scc
+*.nupkg
+[Bb]in
+[Dd]ebug/
+[Pp]ackages/
+*.lib
+*.sbr
+obj/
+[Rr]elease/
+App_Readme/
+_ReSharper/
+[Tt]est/
+[Rr]esult/
+*.[Pp]ublish.xml
+App_Data/
+TEMP/
+!/Openssld的RSA生成秘钥和公钥
