@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace _0403
         {
             InitializeComponent();
             //不安全的方式进行操作
+            //TextBox.CheckForIllegalCrossThreadCalls = false;
             TextBox.CheckForIllegalCrossThreadCalls = false;
         }
 
@@ -27,11 +29,15 @@ namespace _0403
 
         public void Count()
         {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            var totalNum = 0;
             for (int i = 0; i < 99999999; i++)
             {
-
+                totalNum += i;
             }
-            MessageBox.Show("计算完毕");
+            sw.Stop();
+            MessageBox.Show("总和:" + totalNum + "计算完毕:" + sw.ElapsedMilliseconds + "ms");
         }
 
         private void btn_ThreadCount_Click(object sender, EventArgs e)
@@ -82,6 +88,28 @@ namespace _0403
             }
             return newRandom.ToString();
         }
+
+        #region 委托传参数
+        ////委托传参数 start
+        //private delegate void ShowTextLabel(string str);
+        //private void btn_Start_Click(object sender, EventArgs e)
+        //{
+        //    Thread t = new Thread(showMethod);
+        //    t.Start();
+        //}
+
+        //private void showMethod()
+        //{
+        //    ShowTextLabel s = new ShowTextLabel(showLabel);
+        //    this.Invoke(s, new string[] { "aaaa" });
+        //}
+
+        //private void showLabel(string str)
+        //{
+        //    txt_Num.Text = str;
+        //}
+        ////end 
+        #endregion
     }
     public class MyThread
     {
